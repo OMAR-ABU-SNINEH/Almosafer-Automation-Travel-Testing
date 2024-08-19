@@ -1,6 +1,9 @@
 package AlmosaferHome;
 
 import java.time.Duration;
+import java.time.LocalDate;
+import java.util.List;
+import java.util.Random;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -14,13 +17,17 @@ import org.testng.annotations.Test;
 public class HomeTest {
 
 	WebDriver driver = new ChromeDriver();
-	String almosaferURL = "https://www.almosafer.com/en";
+
+	Random rand = new Random();
+
+	String almosaferURLEnglish = "https://www.almosafer.com/en";
+	String almosaferURLArabic = "https://www.almosafer.com/ar";
 
 	@BeforeTest
 	private void setUp() {
 
 		driver.manage().window().maximize();
-		driver.get(almosaferURL);
+		driver.get(almosaferURLEnglish);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
 		WebElement saudiBtn = driver.findElement(By.className("cta__saudi"));
@@ -51,28 +58,86 @@ public class HomeTest {
 		Assert.assertEquals(actualCurrency, expectCurrency);
 
 	}
-	
+
 	@Test(priority = 3, enabled = true)
 	private void contactPhone() {
-		
+
 		WebElement contactNumber = driver.findElement(By.tagName("strong"));
-		
+
 		String actualNumber = contactNumber.getText();
 		String expectNumber = "+966554400000";
-		
+
 		Assert.assertEquals(actualNumber, expectNumber);
-		
+
 	}
 
 	@Test(priority = 4, enabled = true)
 	private void qitafLogoDisplayed() {
-		
-		
-		
+
+		WebElement footer = driver.findElement(By.tagName("footer"));
+		WebElement qitafDiv = footer.findElement(By.cssSelector(".sc-fihHvN.eYrDjb"));
+		WebElement qitafLogo = qitafDiv.findElement(By.xpath(
+				"//*[@data-testid ='Footer__QitafLogo']"));/*
+															 * you can sure that in dev tool > check this command on
+															 * console $x("//*[@data-testid ='Footer__QitafLogo']")
+															 */
+
+		boolean actualDisplayLogo = qitafLogo.isDisplayed();
+		boolean expectDisplayLogo = true;
+
+		Assert.assertEquals(actualDisplayLogo, expectDisplayLogo);
+
 	}
-	
+
+	@Test(priority = 5, enabled = true)
+	private void hotelsNotSelected() {
+
+		WebElement hotelTab = driver.findElement(By.id("uncontrolled-tab-example-tab-hotels"));
+
+		String actualSelected = hotelTab.getAttribute("aria-selected");
+		String expectSelected = "false";
+
+		Assert.assertEquals(actualSelected, expectSelected);
+
+	}
+
+	@Test(priority = 6, enabled = true)
+	private void flightDatesCheck() {
+
+		WebElement theDiv = driver.findElement(By.cssSelector(".sc-jRhVzh.bAdWIl"));
+		List<WebElement> flightDates = theDiv.findElements(By.cssSelector(".sc-cPuPxo.LiroG"));
+
+		WebElement departureElementDate = flightDates.getFirst();
+		WebElement arrivalElementDate = flightDates.getLast();
+
+		String departureDateStr = departureElementDate.getText();
+		String arrivalDateStr = arrivalElementDate.getText();
+
+		int departureDate = Integer.parseInt(departureDateStr);// actual
+		int arrivalDate = Integer.parseInt(arrivalDateStr);// actual
+
+		LocalDate dateNow = LocalDate.now();
+
+		int tomorrow = dateNow.plusDays(1).getDayOfMonth();// expected
+		int theDayAfterTomorrow = dateNow.plusDays(2).getDayOfMonth();// expected
+
+		Assert.assertEquals(departureDate, tomorrow);// Assert for departure flight
+		Assert.assertEquals(arrivalDate, theDayAfterTomorrow);// Assert for arrival flight
+
+	}
+
+	@Test(priority = 7, enabled = true)
+	private void switchLanguageRandomly() {
+		String[] URLs = { almosaferURLEnglish, almosaferURLArabic };
+		int randomlySwitchNum= rand.nextInt(URLs.length);
+		driver.get(URLs[randomlySwitchNum]);
+		System.out.println(driver.getCurrentUrl());
+	}
+
 	@AfterTest
 	private void cleanUp() {
 		driver.quit();
 	}
 }
+
+//Omar Abu Snineh :)

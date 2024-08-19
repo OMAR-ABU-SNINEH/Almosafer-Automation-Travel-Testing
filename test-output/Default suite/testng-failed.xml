@@ -6,8 +6,8 @@
       <class name="AlmosaferHome.HomeTest">
         <methods>
           <include name="setUp"/>
-          <include name="checkDefaultCurrency"/>
           <include name="cleanUp"/>
+          <include name="flightDatesCheck"/>
         </methods>
       </class> <!-- AlmosaferHome.HomeTest -->
     </classes>
