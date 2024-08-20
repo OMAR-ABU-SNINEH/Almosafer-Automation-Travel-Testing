@@ -128,10 +128,54 @@ public class HomeTest {
 
 	@Test(priority = 7, enabled = true)
 	private void switchLanguageRandomly() {
+
 		String[] URLs = { almosaferURLEnglish, almosaferURLArabic };
-		int randomlySwitchNum= rand.nextInt(URLs.length);
+
+		int randomlySwitchNum = rand.nextInt(URLs.length);
+
+		String randomURLLang = URLs[randomlySwitchNum];
+
 		driver.get(URLs[randomlySwitchNum]);
-		System.out.println(driver.getCurrentUrl());
+
+		String actualLang = driver.findElement(By.tagName("html")).getAttribute("lang");
+
+		String expectLang;
+
+		if (randomlySwitchNum == 0) {
+			expectLang = "en";
+		} else {
+			expectLang = "ar";
+		}
+		
+		Assert.assertEquals(actualLang, expectLang);
+	}
+
+	@Test(priority = 8, enabled = true)
+	private void switchToHotelTabAndSearch() {
+
+		WebElement hotelsTab = driver.findElement(By.id("uncontrolled-tab-example-tab-hotels"));
+		hotelsTab.click();
+
+		WebElement searchHotels = driver.findElement(By.xpath("//*[@data-testid='AutoCompleteInput']"));
+
+		String[] cities;
+		int randCityNum;
+
+		if (driver.getCurrentUrl().contains("en")) {
+			cities = new String[] { "Dubai", "Jeddah", "Riyadh" };
+		} else {
+			cities = new String[] { "دبي", "جدة" };
+		}
+
+		randCityNum = rand.nextInt(cities.length);
+
+		searchHotels.sendKeys(cities[randCityNum]);
+
+		WebElement locationsDropdown = driver.findElement(By.xpath("//ul[@data-testid='AutoCompleteResultsList']"));
+		WebElement firstLocation = locationsDropdown
+				.findElement(By.xpath("//*[@data-testid='AutoCompleteResultItem0']"));
+		firstLocation.click();
+
 	}
 
 	@AfterTest

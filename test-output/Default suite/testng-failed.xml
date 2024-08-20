@@ -5,9 +5,9 @@
     <classes>
       <class name="AlmosaferHome.HomeTest">
         <methods>
+          <include name="switchLanguageRandomly"/>
           <include name="setUp"/>
           <include name="cleanUp"/>
-          <include name="flightDatesCheck"/>
         </methods>
       </class> <!-- AlmosaferHome.HomeTest -->
     </classes>
