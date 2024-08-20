@@ -9,6 +9,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
@@ -177,7 +178,29 @@ public class HomeTest {
 		firstLocation.click();
 
 	}
-
+	
+	@Test(priority = 9, enabled = true)
+	private void reservationSelectedRandomly() {
+		
+		WebElement reservationDropdown = driver.findElement(By.cssSelector(".sc-tln3e3-1.gvrkTi"));
+		
+		Select reservationSelect= new Select(reservationDropdown);
+		
+		int randNum= rand.nextInt(2);
+		
+		reservationSelect.selectByIndex(randNum);
+		
+		WebElement searchBtn = driver.findElement(By.xpath("//*[@data-testid='HotelSearchBox__SearchButton']"));
+		searchBtn.click();	
+	}
+	
+	@Test(priority = 10, enabled = true)
+	private void loadingFullyResult() {
+		
+		
+		
+	}
+	
 	@AfterTest
 	private void cleanUp() {
 		driver.quit();
