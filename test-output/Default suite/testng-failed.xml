@@ -5,8 +5,8 @@
     <classes>
       <class name="AlmosaferHome.HomeTest">
         <methods>
-          <include name="switchLanguageRandomly"/>
           <include name="setUp"/>
+          <include name="loadingFullyResult"/>
           <include name="cleanUp"/>
         </methods>
       </class> <!-- AlmosaferHome.HomeTest -->

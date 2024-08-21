@@ -147,7 +147,7 @@ public class HomeTest {
 		} else {
 			expectLang = "ar";
 		}
-		
+
 		Assert.assertEquals(actualLang, expectLang);
 	}
 
@@ -178,29 +178,44 @@ public class HomeTest {
 		firstLocation.click();
 
 	}
-	
+
 	@Test(priority = 9, enabled = true)
 	private void reservationSelectedRandomly() {
-		
+
 		WebElement reservationDropdown = driver.findElement(By.cssSelector(".sc-tln3e3-1.gvrkTi"));
-		
-		Select reservationSelect= new Select(reservationDropdown);
-		
-		int randNum= rand.nextInt(2);
-		
+
+		Select reservationSelect = new Select(reservationDropdown);
+
+		int randNum = rand.nextInt(2);
+
 		reservationSelect.selectByIndex(randNum);
-		
+
 		WebElement searchBtn = driver.findElement(By.xpath("//*[@data-testid='HotelSearchBox__SearchButton']"));
-		searchBtn.click();	
+		searchBtn.click();
 	}
-	
+
 	@Test(priority = 10, enabled = true)
-	private void loadingFullyResult() {
-		
-		
-		
+	private void loadingFullyResult() throws InterruptedException {
+
+		Thread.sleep(Duration.ofSeconds(10));
+		WebElement resultsFoundMessage = driver.findElement(By.cssSelector(".sc-ctwKVn.imWanD"));
+
+		/* 1 */
+
+		boolean actualMessage = resultsFoundMessage.isDisplayed();
+		boolean expectedMessage = true;
+
+		Assert.assertEquals(actualMessage, expectedMessage);
+
+		/* 2 */
+
+//		String results= resultsFoundMessage.getText();
+//		boolean finished = results.contains ("وجدنا") || results.contains("found");
+//		
+//		Assert.assertEquals(finished, "true");
+
 	}
-	
+
 	@AfterTest
 	private void cleanUp() {
 		driver.quit();
