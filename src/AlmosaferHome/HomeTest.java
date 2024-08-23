@@ -30,7 +30,7 @@ public class HomeTest {
 
 		driver.manage().window().maximize();
 		driver.get(almosaferURLEnglish);
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 
 		WebElement saudiBtn = driver.findElement(By.className("cta__saudi"));
 		saudiBtn.click();
@@ -196,10 +196,10 @@ public class HomeTest {
 	}
 
 	@Test(priority = 10, enabled = true)
-	private void loadingFullyResult() throws InterruptedException {
+	private void loadingFullyResult(){
 
-		Thread.sleep(15000);
-		WebElement resultsFoundMessage = driver.findElement(By.className("imWanD"));
+//		Thread.sleep(15000);
+		WebElement resultsFoundMessage = driver.findElement(By.xpath("//*[@data-testid='HotelSearchResult__resultsFoundCount']"));
 
 		/* 1 */
 

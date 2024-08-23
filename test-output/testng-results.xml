@@ -2,60 +2,60 @@
 <testng-results ignored="0" total="11" passed="11" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-08-23T18:47:37 EET" name="Default suite" finished-at="2024-08-23T18:48:03 EET" duration-ms="25461">
+  <suite started-at="2024-08-23T18:58:16 EET" name="Default suite" finished-at="2024-08-23T18:58:43 EET" duration-ms="26282">
     <groups>
     </groups>
-    <test started-at="2024-08-23T18:47:37 EET" name="Default test" finished-at="2024-08-23T18:48:03 EET" duration-ms="25461">
+    <test started-at="2024-08-23T18:58:16 EET" name="Default test" finished-at="2024-08-23T18:58:43 EET" duration-ms="26282">
       <class name="AlmosaferHome.HomeTest">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:AlmosaferHome.HomeTest@44c79f32]" started-at="2024-08-23T18:47:37 EET" name="setUp" finished-at="2024-08-23T18:47:40 EET" duration-ms="2531" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:AlmosaferHome.HomeTest@44c79f32]" started-at="2024-08-23T18:58:16 EET" name="setUp" finished-at="2024-08-23T18:58:19 EET" duration-ms="2588" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="checkDefaultLanguage()[pri:1, instance:AlmosaferHome.HomeTest@44c79f32]" started-at="2024-08-23T18:47:40 EET" name="checkDefaultLanguage" finished-at="2024-08-23T18:47:40 EET" duration-ms="41" status="PASS">
+        <test-method signature="checkDefaultLanguage()[pri:1, instance:AlmosaferHome.HomeTest@44c79f32]" started-at="2024-08-23T18:58:19 EET" name="checkDefaultLanguage" finished-at="2024-08-23T18:58:19 EET" duration-ms="37" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkDefaultLanguage -->
-        <test-method signature="checkDefaultCurrency()[pri:2, instance:AlmosaferHome.HomeTest@44c79f32]" started-at="2024-08-23T18:47:40 EET" name="checkDefaultCurrency" finished-at="2024-08-23T18:47:40 EET" duration-ms="26" status="PASS">
+        <test-method signature="checkDefaultCurrency()[pri:2, instance:AlmosaferHome.HomeTest@44c79f32]" started-at="2024-08-23T18:58:19 EET" name="checkDefaultCurrency" finished-at="2024-08-23T18:58:19 EET" duration-ms="26" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkDefaultCurrency -->
-        <test-method signature="contactPhone()[pri:3, instance:AlmosaferHome.HomeTest@44c79f32]" started-at="2024-08-23T18:47:40 EET" name="contactPhone" finished-at="2024-08-23T18:47:40 EET" duration-ms="22" status="PASS">
+        <test-method signature="contactPhone()[pri:3, instance:AlmosaferHome.HomeTest@44c79f32]" started-at="2024-08-23T18:58:19 EET" name="contactPhone" finished-at="2024-08-23T18:58:19 EET" duration-ms="26" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- contactPhone -->
-        <test-method signature="qitafLogoDisplayed()[pri:4, instance:AlmosaferHome.HomeTest@44c79f32]" started-at="2024-08-23T18:47:40 EET" name="qitafLogoDisplayed" finished-at="2024-08-23T18:47:40 EET" duration-ms="51" status="PASS">
+        <test-method signature="qitafLogoDisplayed()[pri:4, instance:AlmosaferHome.HomeTest@44c79f32]" started-at="2024-08-23T18:58:19 EET" name="qitafLogoDisplayed" finished-at="2024-08-23T18:58:19 EET" duration-ms="55" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- qitafLogoDisplayed -->
-        <test-method signature="hotelsNotSelected()[pri:5, instance:AlmosaferHome.HomeTest@44c79f32]" started-at="2024-08-23T18:47:40 EET" name="hotelsNotSelected" finished-at="2024-08-23T18:47:40 EET" duration-ms="25" status="PASS">
+        <test-method signature="hotelsNotSelected()[pri:5, instance:AlmosaferHome.HomeTest@44c79f32]" started-at="2024-08-23T18:58:19 EET" name="hotelsNotSelected" finished-at="2024-08-23T18:58:19 EET" duration-ms="23" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- hotelsNotSelected -->
-        <test-method signature="flightDatesCheck()[pri:6, instance:AlmosaferHome.HomeTest@44c79f32]" started-at="2024-08-23T18:47:40 EET" name="flightDatesCheck" finished-at="2024-08-23T18:47:40 EET" duration-ms="71" status="PASS">
+        <test-method signature="flightDatesCheck()[pri:6, instance:AlmosaferHome.HomeTest@44c79f32]" started-at="2024-08-23T18:58:19 EET" name="flightDatesCheck" finished-at="2024-08-23T18:58:19 EET" duration-ms="62" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- flightDatesCheck -->
-        <test-method signature="switchLanguageRandomly()[pri:7, instance:AlmosaferHome.HomeTest@44c79f32]" started-at="2024-08-23T18:47:40 EET" name="switchLanguageRandomly" finished-at="2024-08-23T18:47:41 EET" duration-ms="690" status="PASS">
+        <test-method signature="switchLanguageRandomly()[pri:7, instance:AlmosaferHome.HomeTest@44c79f32]" started-at="2024-08-23T18:58:19 EET" name="switchLanguageRandomly" finished-at="2024-08-23T18:58:20 EET" duration-ms="680" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- switchLanguageRandomly -->
-        <test-method signature="switchToHotelTabAndSearch()[pri:8, instance:AlmosaferHome.HomeTest@44c79f32]" started-at="2024-08-23T18:47:41 EET" name="switchToHotelTabAndSearch" finished-at="2024-08-23T18:47:41 EET" duration-ms="413" status="PASS">
+        <test-method signature="switchToHotelTabAndSearch()[pri:8, instance:AlmosaferHome.HomeTest@44c79f32]" started-at="2024-08-23T18:58:20 EET" name="switchToHotelTabAndSearch" finished-at="2024-08-23T18:58:20 EET" duration-ms="510" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- switchToHotelTabAndSearch -->
-        <test-method signature="reservationSelectedRandomly()[pri:9, instance:AlmosaferHome.HomeTest@44c79f32]" started-at="2024-08-23T18:47:41 EET" name="reservationSelectedRandomly" finished-at="2024-08-23T18:47:45 EET" duration-ms="4060" status="PASS">
+        <test-method signature="reservationSelectedRandomly()[pri:9, instance:AlmosaferHome.HomeTest@44c79f32]" started-at="2024-08-23T18:58:20 EET" name="reservationSelectedRandomly" finished-at="2024-08-23T18:58:25 EET" duration-ms="4877" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- reservationSelectedRandomly -->
-        <test-method signature="loadingFullyResult()[pri:10, instance:AlmosaferHome.HomeTest@44c79f32]" started-at="2024-08-23T18:47:45 EET" name="loadingFullyResult" finished-at="2024-08-23T18:48:00 EET" duration-ms="15039" status="PASS">
+        <test-method signature="loadingFullyResult()[pri:10, instance:AlmosaferHome.HomeTest@44c79f32]" started-at="2024-08-23T18:58:25 EET" name="loadingFullyResult" finished-at="2024-08-23T18:58:40 EET" duration-ms="15024" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loadingFullyResult -->
-        <test-method signature="lowestPriceSorting()[pri:11, instance:AlmosaferHome.HomeTest@44c79f32]" started-at="2024-08-23T18:48:00 EET" name="lowestPriceSorting" finished-at="2024-08-23T18:48:02 EET" duration-ms="2087" status="PASS">
+        <test-method signature="lowestPriceSorting()[pri:11, instance:AlmosaferHome.HomeTest@44c79f32]" started-at="2024-08-23T18:58:40 EET" name="lowestPriceSorting" finished-at="2024-08-23T18:58:42 EET" duration-ms="2065" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- lowestPriceSorting -->
-        <test-method is-config="true" signature="cleanUp()[pri:0, instance:AlmosaferHome.HomeTest@44c79f32]" started-at="2024-08-23T18:48:02 EET" name="cleanUp" finished-at="2024-08-23T18:48:03 EET" duration-ms="358" status="PASS">
+        <test-method is-config="true" signature="cleanUp()[pri:0, instance:AlmosaferHome.HomeTest@44c79f32]" started-at="2024-08-23T18:58:42 EET" name="cleanUp" finished-at="2024-08-23T18:58:43 EET" duration-ms="261" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- cleanUp -->
