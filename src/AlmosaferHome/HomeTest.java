@@ -2,6 +2,7 @@ package AlmosaferHome;
 
 import java.time.Duration;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -197,8 +198,8 @@ public class HomeTest {
 	@Test(priority = 10, enabled = true)
 	private void loadingFullyResult() throws InterruptedException {
 
-		Thread.sleep(Duration.ofSeconds(10));
-		WebElement resultsFoundMessage = driver.findElement(By.cssSelector(".sc-ctwKVn.imWanD"));
+		Thread.sleep(15000);
+		WebElement resultsFoundMessage = driver.findElement(By.className("imWanD"));
 
 		/* 1 */
 
@@ -213,6 +214,74 @@ public class HomeTest {
 //		boolean finished = results.contains ("وجدنا") || results.contains("found");
 //		
 //		Assert.assertEquals(finished, "true");
+
+	}
+
+	@Test(priority = 11, enabled = true)
+	private void lowestPriceSorting() {
+
+		WebElement lowestPriceBtn = driver
+				.findElement(By.xpath("//*[@data-testid='HotelSearchResult__sort__LOWEST_PRICE']"));
+		lowestPriceBtn.click();
+
+		WebElement hotelResults = driver.findElement(By.xpath("//*[@data-testid='HotelSearchResult__ResultsList']"));
+
+		/* To exclude a specific div when collecting the list of price values */
+		List<WebElement> priceValues = hotelResults.findElements(By.xpath(
+				".//span[contains(@class,'Price__Value') and not(ancestor::div[contains(@class,'sc-hkaZBZ')])]"));
+
+		
+
+		String theFirstValueBeforeLoop = priceValues.get(0).getText();
+		String theLastValueBeforeLoop = priceValues.get(priceValues.size() - 1).getText();
+
+		int theFirstValueBeforeLoopInt = Integer.parseInt(theFirstValueBeforeLoop);
+		int theLastValueBeforeLoopInt = Integer.parseInt(theLastValueBeforeLoop);
+
+		System.out.println("All Values After Loop " + priceValues.size());
+		System.out.println("The First Value " + theFirstValueBeforeLoopInt);
+		System.out.println("The Last Value " + theLastValueBeforeLoopInt);
+		
+		List<WebElement> wantRemove = new ArrayList<>();
+
+		/*
+		 * The developer had to put different classes and attributes to distinguish
+		 * between the old and new prices to avoid the following complexity.
+		 */
+		for (WebElement value : priceValues) {
+
+			String textVal = "line-through";
+			String textDecoration = value.getCssValue("text-decoration");
+
+			if (textDecoration.contains(textVal)) {
+				wantRemove.add(value);
+			}
+		}
+
+		priceValues.removeAll(wantRemove);
+
+		priceValues.sort((e1, e2) -> {
+			int price1 = Integer.parseInt(e1.getText());
+			int price2 = Integer.parseInt(e2.getText());
+			return Integer.compare(price1, price2);
+		});
+
+		String theFirstValueAfterLoop = priceValues.get(0).getText();
+		String theLastValueAfterLoop = priceValues.get(priceValues.size() - 1).getText();
+
+		int theFirstValueAfterLoopInt = Integer.parseInt(theFirstValueAfterLoop);
+		int theLastValueAfterLoopInt = Integer.parseInt(theLastValueAfterLoop);
+
+		System.out.println("All Values After Loop " + priceValues.size());
+		System.out.println("The First Value " + theFirstValueAfterLoopInt);
+		System.out.println("The Last Value " + theLastValueAfterLoopInt);
+		
+		boolean actualSort = (theFirstValueBeforeLoopInt == theFirstValueAfterLoopInt)
+				&& (theLastValueBeforeLoopInt == theLastValueAfterLoopInt)
+				&& (theFirstValueAfterLoopInt <= theLastValueAfterLoopInt);
+		boolean expectSort = true;
+		
+		Assert.assertEquals(actualSort, expectSort);
 
 	}
 
